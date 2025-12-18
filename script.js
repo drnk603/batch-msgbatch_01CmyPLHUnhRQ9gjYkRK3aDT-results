@@ -274,9 +274,9 @@
             window.__app.formsInit = true;
 
             this.patterns = {
-                name: /^[a-zA-ZÀ-ÿs-']{2,50}$/,
-                email: /^[^s@]+@[^s@]+.[^s@]+$/,
-                phone: /^[+-ds()]{10,20}$/,
+                name: /^[a-zA-ZÀ-ÿ\s-']{2,50}$/,
+                email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                phone: /^[+\-\d\s()]{10,20}$/,
                 message: /.{10,}/
             };
 
@@ -517,7 +517,7 @@
         }
 
         animateCounter(element) {
-            const target = parseInt(element.textContent.replace(/D/g, ''));
+            const target = parseInt(element.textContent.replace(/\D/g, ''));
             const duration = 2000;
             const increment = target / (duration / 16);
             let current = 0;
